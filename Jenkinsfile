@@ -26,18 +26,18 @@ cat index.html'''
 docker build -t mysiteweb:latest .
 '''
         sh '''# Del of old image
-docker rmi http://devopscentos:5000/mysiteweb:latest
+docker #rmi devopscentos:5000/mysiteweb:latest
 
 # Upload to the local registry
-docker tag mysiteweb:latest http://devopscentos:5000/mysiteweb:latest 
-docker push http://devopscentos:5000/mysiteweb:latest '''
+docker tag mysiteweb:latest devopscentos:5000/mysiteweb:latest 
+docker push devopscentos:5000/mysiteweb:latest '''
       }
     }
 
     stage('Launch Web Site') {
       steps {
         sh '''# Run docker website
-docker run --name mywebsite -d -p 80:80 172.17.0.3:5000/mysiteweb:latest'''
+docker run --name mywebsite -d -p 80:80 devopscentos:5000/mysiteweb:latest'''
       }
     }
 
