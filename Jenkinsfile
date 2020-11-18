@@ -26,7 +26,7 @@ cat index.html'''
 docker build -t mysiteweb:latest .
 '''
         sh '''# Del of old image
-docker #rmi devopscentos:5000/mysiteweb:latest
+#docker rmi devopscentos:5000/mysiteweb:latest
 
 # Upload to the local registry
 docker tag mysiteweb:latest devopscentos:5000/mysiteweb:latest 
